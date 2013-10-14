@@ -18,4 +18,23 @@ testFileExists()
 	assertEquals "Status failure case" 1 $?
 }
 
+testFileCleanup()
+{
+	assertEquals "Function file.cleanup exists" "function" $(type -t file.cleanup)
+	
+	touch .todelete
+	assertEquals "First .todelete file exists" 0 $(file.exists .todelete)
+	
+	mkdir .todelete_dir/
+	touch .todelete_dir/.todelete
+	assertEquals "Second .todelete file exists" 0 $(file.exists .todelete_dir/.todelete)
+	
+	file.cleanup . .todelete
+	
+	assertEquals "First .todelete gone" 1 $(file.exists .todelete)
+	assertEquals "Second .todelete gone" 1 $(file.exists .todelete_dir/.todelete)
+	
+	rmdir .todelete_dir/
+}
+
 source $(which shunit2)
