@@ -8,7 +8,7 @@
 #
 function system.deny_non_root
 {
-	test $(id -u) -eq 1
+	test $(id -u) -eq 0
 	local status=$?
 	
 	if [ $status -ne 0 ]
