@@ -13,6 +13,6 @@ function system.deny_non_root
 	
 	if [ $status -ne 0 ]
 	then
-		console.fatal "The root must run this command!"
+		console.fatal "The root user must run this script."
 	fi
 }
