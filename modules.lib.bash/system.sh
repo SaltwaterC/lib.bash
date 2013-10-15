@@ -9,10 +9,5 @@
 function system.deny_non_root
 {
 	test $(id -u) -eq 0
-	local status=$?
-	
-	if [ $status -ne 0 ]
-	then
-		console.fatal "The root user must run this script."
-	fi
+	test $? -ne 0 && console.fatal "The root user must run this script."
 }
