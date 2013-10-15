@@ -25,7 +25,7 @@ testFileCleanup()
 	touch .file.cleanup
 	assertEquals "First .file.cleanup file exists" 0 $(file.exists .file.cleanup)
 	
-	mkdir .file.cleanup_dir/
+	mkdir -p .file.cleanup_dir/
 	touch .file.cleanup_dir/.file.cleanup
 	assertEquals "Second .file.cleanup file exists" 0 $(file.exists .file.cleanup_dir/.file.cleanup)
 	
