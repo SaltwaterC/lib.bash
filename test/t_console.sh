@@ -21,7 +21,7 @@ testConsoleFatal()
 	assertNull "STDOUT is empty" "$(console.fatal error 2>/dev/null)"
 	assertNull "STDERR is not empty" "$(console.fatal error >/dev/null 2>&1)"
 	./s_console.fatal_1
-	assertEquals "Standard exit code matches" 1 $?
+	assertEquals "Standard exit code matches" $FALSE $?
 	./s_console.fatal_2
 	assertEquals "Custom exit code matches" 255 $?
 }
@@ -30,7 +30,7 @@ testConsoleConditionalLog()
 {
 	assertEquals "Function console.conditional_log exists" "function" $(type -t console.conditional_log)
 	assertEquals "Output matches" "output" $(console.conditional_log output)
-	assertNull "STDOUT is empty" "$(console.conditional_log output 1)"
+	assertNull "STDOUT is empty" "$(console.conditional_log output $FALSE)"
 }
 
 source $(which shunit2)

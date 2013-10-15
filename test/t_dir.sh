@@ -8,14 +8,14 @@ testDirExists()
 	assertEquals "Function dir.exists exists" "function" $(type -t dir.exists)
 	
 	# test with output
-	assertEquals "Output success case" 0 $(dir.exists $(dirname $0))
-	assertEquals "Output failure case" 1 $(dir.exists do-not-exist)
+	assertEquals "Output success case" $TRUE $(dir.exists $(dirname $0))
+	assertEquals "Output failure case" $FALSE $(dir.exists do-not-exist)
 
 	# test with return
-	dir.exists $(dirname $0) 1
-	assertEquals "Status success case" 0 $?
-	dir.exists do-not-exist 1
-	assertEquals "Status failure case" 1 $?
+	dir.exists $(dirname $0) $FALSE
+	assertEquals "Status success case" $TRUE $?
+	dir.exists do-not-exist $FALSE
+	assertEquals "Status failure case" $FALSE $?
 }
 
 testDirCleanup()
@@ -25,21 +25,21 @@ testDirCleanup()
 	
 	mkdir -p .dir.cleanup/
 	touch .dir.cleanup/.dir.cleanup_file
-	assertEquals "First .dir.cleanup exists" 0 $(dir.exists .dir.cleanup)
-	assertEquals "First .dir.cleanup_file exists" 0 $(file.exists .dir.cleanup/.dir.cleanup_file)
+	assertEquals "First .dir.cleanup exists" $TRUE $(dir.exists .dir.cleanup)
+	assertEquals "First .dir.cleanup_file exists" $TRUE $(file.exists .dir.cleanup/.dir.cleanup_file)
 	
 	mkdir -p .dir.cleanup_dir/.dir.cleanup/
 	touch .dir.cleanup_dir/.dir.cleanup/.dir.cleanup_file
-	assertEquals "Second .dir.cleanup exists" 0 $(dir.exists .dir.cleanup_dir/.dir.cleanup)
-	assertEquals "Second .dir.cleanup_file exists" 0 $(file.exists .dir.cleanup_dir/.dir.cleanup/.dir.cleanup_file)
+	assertEquals "Second .dir.cleanup exists" $TRUE $(dir.exists .dir.cleanup_dir/.dir.cleanup)
+	assertEquals "Second .dir.cleanup_file exists" $TRUE $(file.exists .dir.cleanup_dir/.dir.cleanup/.dir.cleanup_file)
 	
 	dir.cleanup . .dir.cleanup
-	assertEquals "Exists with success" 0 $?
+	assertEquals "Exists with success" $TRUE $?
 	
-	assertEquals "First .dir.cleanup gone" 1 $(dir.exists .dir.cleanup)
-	assertEquals "First .dir.cleanup_file gone" 1 $(file.exists .dir.cleanup/.dir.cleanup_file)
-	assertEquals "Second .dir.cleanup exists" 1 $(dir.exists .dir.cleanup_dir/.dir.cleanup)
-	assertEquals "Second .dir.cleanup_file exists" 1 $(file.exists .dir.cleanup_dir/.dir.cleanup/.dir.cleanup_file)
+	assertEquals "First .dir.cleanup gone" $FALSE $(dir.exists .dir.cleanup)
+	assertEquals "First .dir.cleanup_file gone" $FALSE $(file.exists .dir.cleanup/.dir.cleanup_file)
+	assertEquals "Second .dir.cleanup exists" $FALSE $(dir.exists .dir.cleanup_dir/.dir.cleanup)
+	assertEquals "Second .dir.cleanup_file exists" $FALSE $(file.exists .dir.cleanup_dir/.dir.cleanup/.dir.cleanup_file)
 	
 	rmdir .dir.cleanup_dir
 }
