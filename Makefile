@@ -4,6 +4,10 @@
 all:
 	@tools/test.sh
 
+test: all
+tests: all
+check: all
+
 install:
 	install -o root -m 644 lib.bash /usr/lib
 	install -o root -m 755 -d /usr/lib/modules.lib.bash

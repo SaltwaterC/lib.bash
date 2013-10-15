@@ -6,7 +6,7 @@
 ##
 # Checks if the argument is an integer
 # @param $int
-# @param $no_print - defaults to false
+# @param $no_print - defaults to falsy
 # @returns $status
 #
 function number.is_int

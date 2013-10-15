@@ -12,9 +12,9 @@ testNumberIsInt()
 	assertEquals "Output failure case" 1 $(number.is_int a)
 
 	# test with return
-	number.is_int 1 true
+	number.is_int 1 1
 	assertEquals "Status success case" 0 $?
-	number.is_int a true
+	number.is_int a 1
 	assertEquals "Status failure case" 1 $?
 }
 

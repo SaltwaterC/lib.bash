@@ -12,10 +12,26 @@ testDirExists()
 	assertEquals "Output failure case" 1 $(dir.exists do-not-exist)
 
 	# test with return
-	dir.exists $(dirname $0) true
+	dir.exists $(dirname $0) 1
 	assertEquals "Status success case" 0 $?
-	dir.exists do-not-exist true
+	dir.exists do-not-exist 1
 	assertEquals "Status failure case" 1 $?
+}
+
+testDirCleanup()
+{
+	# function exists
+	assertEquals "Function dir.cleanup exists" "function" $(type -t dir.cleanup)
+	
+	mkdir .dir.cleanup/
+	touch .dir.cleanup/.dir.cleanup_file
+	assertEquals "First .dir.cleanup exists" 0 $(dir.exists .dir.cleanup)
+	assertEquals "First .dir.cleanup_file exists" 0 $(file.exists .dir.cleanup/.dir.cleanup_file)
+	
+	mkdir -p .dir.cleanup_dir/.dir.cleanup/
+	touch .dir.cleanup_dir/.dir.cleanup/.dir.cleanup_file
+	assertEquals "Second .dir.cleanup exists" 0 $(dir.exists .dir.cleanup_dir/.dir.cleanup)
+	assertEquals "Second .dir.cleanup_file exists" 0 $(file.exists .dir_cleanup_dir/.dir.cleanup/.dir.cleanup_file)
 }
 
 source $(which shunit2)

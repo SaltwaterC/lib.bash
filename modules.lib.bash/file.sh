@@ -6,7 +6,7 @@
 ##
 # Checks if a file exists
 # @param $file_path
-# @param $no_print - defaults to false
+# @param $no_print - defaults to falsy
 # @returns $status
 #
 function file.exists
@@ -18,11 +18,13 @@ function file.exists
 }
 
 ##
-# Recursive delete of all the files having the input name into the target directory
+# Recursive delete of all the files having the input name into the target
+# directory
 # @param $target_directory
 # @param $file_name
 #
 function file.cleanup
 {
 	find "$1" -name "$2" -type f -print0 | xargs -0 rm -f
+	return $?
 }

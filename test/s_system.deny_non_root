@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source ../lib.bash
+
+# test stub for testing the standard exit code
+system.deny_non_root 2>/dev/null
