@@ -5,7 +5,7 @@ source ../lib.bash
 testSystemDenyNonRoot()
 {
 	assertEquals "Function system.deny_non_root exists" "function" $(type -t system.deny_non_root)
-	if [ $(id -u) -eq 1 ]
+	if [ $(id -u) -eq 0 ]
 	then
 		# running under superuser, test success
 		assertNull "STDOUT is empty" "$(system.deny_non_root)"
