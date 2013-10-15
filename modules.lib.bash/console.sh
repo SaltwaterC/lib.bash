@@ -29,7 +29,8 @@ function console.error
 function console.fatal
 {
 	local status=1
-	if [ $(number.is_int $1) -eq 0 ]
+	
+	if [ $(number.is_int "$1") -eq 0 ]
 	then
 		status=$1
 		shift
