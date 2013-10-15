@@ -9,6 +9,7 @@ export TRUE=0
 export FALSE=1
 
 # color stuff
+test -z "$TERM" && export TERM=xterm-color
 export BOLD=$(tput bold)
 export NORM=$(tput sgr0)
 
