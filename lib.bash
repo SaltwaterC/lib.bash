@@ -9,9 +9,8 @@ export TRUE=0
 export FALSE=1
 
 # color stuff
-test -z "$TERM" && export TERM=xterm-color
-export BOLD=$(tput bold)
-export NORM=$(tput sgr0)
+export BOLD=$(tput -T xterm-color bold)
+export NORM=$(tput -T xterm-color sgr0)
 
 this_dir="$(dirname $BASH_SOURCE[0])"
 for module in $(ls ${this_dir}/modules.lib.bash/*.sh)
