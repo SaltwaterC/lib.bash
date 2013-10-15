@@ -38,4 +38,20 @@ testFileCleanup()
 	rmdir .file.cleanup_dir/
 }
 
+testFileStrReplace()
+{
+	local str="ab"
+	local file=".file.str_replace"
+	
+	assertEquals "Function file.str_replace exists" "function" $(type -t file.str_replace)
+	echo "abcd" > "$file"
+	
+	file.str_replace "$str" "cd" "$file"
+	file.str_replace "cd" "$str" "$file"
+	
+	assertEquals "The string is succesfully replaced" "abab" $(cat "$file") 
+	
+	rm -f "$file"
+}
+
 source $(which shunit2)

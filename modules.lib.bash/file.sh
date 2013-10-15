@@ -22,9 +22,23 @@ function file.exists
 # directory
 # @param $target_directory
 # @param $file_name
+# @returns $status
 #
 function file.cleanup
 {
 	find "$1" -name "$2" -type f -print0 | xargs -0 rm -f
 	return $?
+}
+
+##
+# Replace the target string with the source string in file
+# Depends on: GNU sed, "gsed" on OS X and FreeBSD
+# @param $target
+# @param $source
+# @param $file
+#
+function file.str_replace
+{
+	local SED=$(which gsed || which sed)
+	$SED -i "s/$1/$2/g" "$3"
 }

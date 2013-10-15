@@ -21,6 +21,7 @@ function dir.exists
 # name into the target directory
 # @param $target_directory
 # @param $directory_name
+# @returns $status
 #
 function dir.cleanup
 {
