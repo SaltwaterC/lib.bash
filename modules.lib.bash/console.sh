@@ -47,6 +47,9 @@ function console.fatal
 #
 function console.conditional_log
 {
+	# no shorter or more elegant way to write this
+	# unfortunately there's no lazy evaluation
+	# and the type mismatch throws errors
 	if [ -z "$2" ]
 	then
 		echo -n "$1"

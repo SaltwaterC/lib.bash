@@ -5,7 +5,7 @@ Bash framework for writing shell applications.
 Project goals:
 
  * modular design
- * proper documentation
- * tested code (with shUnit 2.x)
+ * proper documentation (none at the moment, the code is my docs)
+ * tested code (with [shunit2](https://code.google.com/p/shunit2/))
 
 *Warning:* development version. Things will break, function names and arguments will change.
