@@ -44,4 +44,10 @@ testDirCleanup()
 	rmdir .dir.cleanup_dir
 }
 
+testDirAbsolutePath()
+{
+	local READLINK=$(which greadlink || which readlink)
+	assertEquals "Absolute path for input directory" $($READLINK -f .) $(dir.absolute_path .)
+}
+
 source $(which shunit2)
