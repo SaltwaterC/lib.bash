@@ -9,5 +9,5 @@
 function system.deny_non_root
 {
 	test $(id -u) -eq 0
-	test $? -ne 0 && console.fatal "The root user must run this script."
+	test $? -ne $TRUE && console.fatal "The root user must run this script."
 }

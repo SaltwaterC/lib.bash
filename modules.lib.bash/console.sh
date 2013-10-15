@@ -28,7 +28,7 @@ function console.error
 #
 function console.fatal
 {
-	local status=1
+	local status=$FALSE
 	
 	if [ $(number.is_int "$1") -eq 0 ]
 	then
@@ -55,7 +55,7 @@ function console.conditional_log
 	then
 		echo -n "$1"
 	else
-		if [ $2 -eq 0 ]
+		if [ $2 -eq $TRUE ]
 		then
 			echo -n "$1"
 		fi
