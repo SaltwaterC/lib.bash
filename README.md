@@ -1,6 +1,6 @@
 ## About
 
-Bash framework for writing shell applications.
+Bash library for writing shell applications.
 
 Project goals:
 
