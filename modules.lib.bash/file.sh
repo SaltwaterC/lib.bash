@@ -39,6 +39,5 @@ function file.cleanup
 #
 function file.str_replace
 {
-	local SED=$(which gsed || which sed)
 	$SED -i "s/$1/$2/g" "$3"
 }

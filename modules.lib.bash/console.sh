@@ -61,3 +61,12 @@ function console.conditional_log
 		fi
 	fi
 }
+
+##
+# Strips the color codes from the input string
+# @param $string
+#
+function console.strip_colors
+{
+	echo -e "$@" | $SED "s:\x1B\[[0-9;]*[mK]::g"
+}

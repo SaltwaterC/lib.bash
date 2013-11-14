@@ -33,4 +33,12 @@ testConsoleConditionalLog()
 	assertNull "STDOUT is empty" "$(console.conditional_log output $FALSE)"
 }
 
+testConsoleStripColors()
+{
+	local string="\e[32;1mPASS\e[0m"
+	string=$(console.strip_colors "$string")
+	assertEquals "Function console.strip_colors exists" "function" $(type -t console.strip_colors)
+	assertEquals "Output matches" "PASS" "$string"
+}
+
 source $(which shunit2)
