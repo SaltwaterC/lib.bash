@@ -3,4 +3,4 @@
 source ../lib.bash
 
 # test stub for testing the custom exit code
-console.fatal 255 error 2>/dev/null
+console_fatal 255 error 2>/dev/null

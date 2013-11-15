@@ -2,6 +2,9 @@
 ## Global module loader and variable definitions
 ###
 
+set -o posix
+
+# set the library version
 export LIB_BASH_VERSION="0.1-dev"
 
 # boolean stuff

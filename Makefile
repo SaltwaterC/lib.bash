@@ -4,6 +4,10 @@
 all:
 	@tools/test.sh
 
+doc:
+	headerdoc2html -o docs framework.hdoc lib.bash modules.lib.bash
+	gatherheaderdoc docs
+
 test: all
 tests: all
 check: all

@@ -3,4 +3,4 @@
 source ../lib.bash
 
 # test stub for testing the standard exit code
-console.fatal error 2>/dev/null
+console_fatal error 2>/dev/null
