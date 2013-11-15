@@ -7,6 +7,8 @@ There are some globally exported environment variables:<br>
     <li><strong>LIB_BASH_VERSION</strong> - shows the library version</li>
     <li><strong>TRUE</strong> - holds the true value for bash, 0</li>
     <li><strong>FALSE</strong> - holds the false value for bash, 1</li>
+    <li><strong>BOLD</strong> - sets the output to be bolded</li>
+    <li><strong>NORM</strong> - reset the output to normal after a color mode is applied</li>
     <li><strong>SED_BIN</strong> - path to the GNU sed (gsed) binary</li>
 </ul>
 */

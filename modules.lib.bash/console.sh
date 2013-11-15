@@ -6,8 +6,13 @@
 # /*!
 # @abstract Prints the message to STDOUT
 # @discussion
-#<strong>Example:</strong><pre>
-#console_log Text to output to STDOUT.</pre>
+#<strong>Examples:</strong><pre>
+## normal output
+#console_log Text to output to STDOUT.
+#
+## bold output
+#console_log "${BOLD}This text is bolded.${NORM}"
+#</pre>
 # @indexgroup console
 # @param $message The message to print to STDOUT
 # */
