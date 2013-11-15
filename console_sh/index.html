@@ -230,9 +230,14 @@ console_fatal 255 "Fatal Error: reason"</pre>
 </dl>
 </div>
 <h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
-<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/shell/func/console_log;name=start --><p><strong>Example:</strong></p>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/shell/func/console_log;name=start --><p><strong>Examples:</strong></p>
 <pre>
-console_log Text to output to STDOUT.</pre>
+# normal output
+console_log Text to output to STDOUT.
+
+# bold output
+console_log "${BOLD}This text is bolded.${NORM}"
+</pre>
 <!-- headerDoc=discussion;uid=//apple_ref/shell/func/console_log;name=end --><!-- end discussion -->
 <hr class="betweenAPIEntries">
 <!-- headerDoc=func;  uid=//apple_ref/shell/func/console_strip_colors;  indexgroup=console ;   name=console_strip_colors --><a name="//apple_ref/shell/func/console_strip_colors"></a>
