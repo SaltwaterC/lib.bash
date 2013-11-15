@@ -1,4 +1,12 @@
 /*! @framework lib.bash
     @abstract
-    @discussion Bash library for writing shell applications
+    @discussion
+Bash library for writing shell applications.<hr>
+There are some globally exported environment variables:<br>
+<ul>
+    <li><strong>LIB_BASH_VERSION</strong> - shows the library version</li>
+    <li><strong>TRUE</strong> - holds the true value for bash, 0</li>
+    <li><strong>FALSE</strong> - holds the false value for bash, 1</li>
+    <li><strong>SED_BIN</strong> - path to the GNU sed (gsed) binary</li>
+</ul>
 */
