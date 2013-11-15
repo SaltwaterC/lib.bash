@@ -39,5 +39,5 @@ function file.cleanup
 #
 function file.str_replace
 {
-	$SED -i "s/$1/$2/g" "$3"
+	$SED_BIN -i "s/$1/$2/g" "$3"
 }

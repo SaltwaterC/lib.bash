@@ -30,7 +30,7 @@ function console.fatal
 {
 	local status=$FALSE
 	
-	if [ $(number.is_int "$1") -eq 0 ]
+	if [ $(number.is_int "$1") -eq $TRUE ]
 	then
 		status=$1
 		shift
@@ -68,5 +68,5 @@ function console.conditional_log
 #
 function console.strip_colors
 {
-	echo -e "$@" | $SED "s:\x1B\[[0-9;]*[mK]::g"
+	echo -e "$@" | $SED_BIN "s:\x1B\[[0-9;]*[mK]::g"
 }

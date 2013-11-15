@@ -13,7 +13,7 @@ export BOLD=$(tput -T xterm-color bold)
 export NORM=$(tput -T xterm-color sgr0)
 
 # cross platform GNU sed invoke
-export SED=$(which gsed || which sed)
+export SED_BIN=$(which gsed || which sed)
 
 this_dir="$(dirname $BASH_SOURCE[0])"
 for module in $(ls ${this_dir}/modules.lib.bash/*.sh)
