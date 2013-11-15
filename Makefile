@@ -5,8 +5,11 @@ all:
 	@tools/test.sh
 
 doc:
-	headerdoc2html -o docs framework.hdoc lib.bash modules.lib.bash
-	gatherheaderdoc docs
+	headerdoc2html -o ../docs framework.hdoc lib.bash modules.lib.bash
+	gatherheaderdoc ../docs
+
+docpublish: doc
+	cd ../docs && git commit --all --message "Auto generated documentation" && git push origin gh-pages
 
 test: all
 tests: all
